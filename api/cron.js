@@ -1,4 +1,4 @@
-import { kv } from '@vercel/kv';
+import { createClient } from '@vercel/kv';
 import webpush from 'web-push';
 
 // Chave pública padrão (a mesma do cliente). Só a PRIVADA precisa vir do ambiente.
@@ -11,6 +11,14 @@ const MESSAGES = [
   { title: 'Sessão do dia 🐶', body: 'Pegue os petiscos e chame o {dog} pro treino!' },
   { title: 'Mantenha a ofensiva 🔥', body: 'Não deixe a sequência cair — treine com o {dog} hoje.' },
 ];
+
+function getKv() {
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token =
+    process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+  if (!url || !token) return null;
+  return createClient({ url, token });
+}
 
 function hourIn(tz) {
   try {
@@ -27,58 +35,83 @@ function hourIn(tz) {
 }
 
 export default async function handler(req, res) {
-  // Autenticação: a Vercel Cron envia "Authorization: Bearer <CRON_SECRET>".
-  // Também aceitamos ?key=<CRON_SECRET> para testes manuais.
-  const secret = process.env.CRON_SECRET;
-  const auth = req.headers.authorization || '';
-  const key = (req.query && req.query.key) || '';
-  if (secret && auth !== `Bearer ${secret}` && key !== secret) {
-    return res.status(401).json({ error: 'unauthorized' });
-  }
+  try {
+    const query = req.query || {};
 
-  const priv = process.env.VAPID_PRIVATE_KEY;
-  if (!priv) return res.status(500).json({ error: 'missing VAPID_PRIVATE_KEY' });
-  const pub = process.env.VAPID_PUBLIC_KEY || DEFAULT_PUBLIC;
-  const subject = process.env.VAPID_SUBJECT || 'mailto:prialmeida.souza@gmail.com';
-  webpush.setVapidDetails(subject, pub, priv);
-
-  const force = req.query && req.query.test === '1'; // dispara sem checar horário
-  const ids = (await kv.smembers('adestra:subs')) || [];
-  let sent = 0,
-    skipped = 0,
-    removed = 0;
-
-  for (const id of ids) {
-    const rec = await kv.get('adestra:sub:' + id);
-    if (!rec || !rec.subscription) {
-      await kv.srem('adestra:subs', id);
-      removed++;
-      continue;
+    // Diagnóstico: mostra o que está configurado (sem revelar segredos).
+    if (query.diag === '1') {
+      return res.status(200).json({
+        ok: true,
+        kv_configurado: Boolean(getKv()),
+        vapid_private: Boolean(process.env.VAPID_PRIVATE_KEY),
+        cron_secret: Boolean(process.env.CRON_SECRET),
+        vapid_subject: process.env.VAPID_SUBJECT || '(padrão)',
+      });
     }
-    if (!force && hourIn(rec.tz) !== rec.hour) {
-      skipped++;
-      continue;
+
+    // Autenticação: a Vercel Cron envia "Authorization: Bearer <CRON_SECRET>".
+    // Também aceitamos ?key=<CRON_SECRET> para testes manuais.
+    const secret = process.env.CRON_SECRET;
+    const auth = req.headers.authorization || '';
+    const key = query.key || '';
+    if (secret && auth !== `Bearer ${secret}` && key !== secret) {
+      return res.status(401).json({ error: 'unauthorized' });
     }
-    const msg = MESSAGES[Math.floor(Date.now() / 86400000) % MESSAGES.length];
-    const payload = JSON.stringify({
-      title: msg.title,
-      body: msg.body.replace('{dog}', rec.dogName || 'seu cão'),
-      url: '/',
-    });
-    try {
-      await webpush.sendNotification(rec.subscription, payload);
-      sent++;
-    } catch (err) {
-      const code = err && err.statusCode;
-      if (code === 404 || code === 410) {
-        await kv.del('adestra:sub:' + id);
+
+    const priv = process.env.VAPID_PRIVATE_KEY;
+    if (!priv) {
+      return res.status(503).json({ error: 'faltou VAPID_PRIVATE_KEY nas variáveis do Vercel' });
+    }
+    const kv = getKv();
+    if (!kv) {
+      return res.status(503).json({ error: 'banco KV não configurado no Vercel' });
+    }
+
+    const pub = process.env.VAPID_PUBLIC_KEY || DEFAULT_PUBLIC;
+    const subject = process.env.VAPID_SUBJECT || 'mailto:prialmeida.souza@gmail.com';
+    webpush.setVapidDetails(subject, pub, priv);
+
+    const force = query.test === '1'; // dispara sem checar horário
+    const ids = (await kv.smembers('adestra:subs')) || [];
+    let sent = 0,
+      skipped = 0,
+      removed = 0;
+
+    for (const id of ids) {
+      const rec = await kv.get('adestra:sub:' + id);
+      if (!rec || !rec.subscription) {
         await kv.srem('adestra:subs', id);
         removed++;
-      } else {
-        console.error('send error', code, err && err.body);
+        continue;
+      }
+      if (!force && hourIn(rec.tz) !== rec.hour) {
+        skipped++;
+        continue;
+      }
+      const msg = MESSAGES[Math.floor(Date.now() / 86400000) % MESSAGES.length];
+      const payload = JSON.stringify({
+        title: msg.title,
+        body: msg.body.replace('{dog}', rec.dogName || 'seu cão'),
+        url: '/',
+      });
+      try {
+        await webpush.sendNotification(rec.subscription, payload);
+        sent++;
+      } catch (err) {
+        const code = err && err.statusCode;
+        if (code === 404 || code === 410) {
+          await kv.del('adestra:sub:' + id);
+          await kv.srem('adestra:subs', id);
+          removed++;
+        } else {
+          console.error('send error', code, err && err.body);
+        }
       }
     }
-  }
 
-  return res.status(200).json({ ok: true, total: ids.length, sent, skipped, removed });
+    return res.status(200).json({ ok: true, total: ids.length, sent, skipped, removed });
+  } catch (e) {
+    console.error('cron', e);
+    return res.status(500).json({ error: 'server', message: String(e && e.message) });
+  }
 }
