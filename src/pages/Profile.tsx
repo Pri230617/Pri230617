@@ -47,6 +47,9 @@ export default function Profile() {
         <Link to="/diario" className="btn-ghost">
           📔 Diário
         </Link>
+        <Link to="/lembretes" className="btn-ghost col-span-2">
+          🔔 Lembretes de treino
+        </Link>
       </div>
 
       {/* Cards de cães */}

@@ -132,5 +132,9 @@ export interface AppState {
     count: number;
     lastTrainingDate: string | null; // ISO date (yyyy-mm-dd)
   };
+  reminder: {
+    enabled: boolean;
+    hour: number; // 0..23, horário do lembrete diário
+  };
   onboarded: boolean;
 }

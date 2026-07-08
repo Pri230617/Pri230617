@@ -12,6 +12,7 @@ const quickActions = [
   { to: '/guia', emoji: '📖', label: 'Guia' },
   { to: '/conquistas', emoji: '🏆', label: 'Conquistas' },
   { to: '/diario', emoji: '📔', label: 'Diário' },
+  { to: '/lembretes', emoji: '🔔', label: 'Lembretes' },
 ];
 
 export default function Home() {
@@ -96,12 +97,12 @@ export default function Home() {
       </div>
 
       {/* Atalhos */}
-      <div className="mt-3 grid grid-cols-4 gap-2">
+      <div className="no-scrollbar -mx-4 mt-3 flex gap-2 overflow-x-auto px-4">
         {quickActions.map((a) => (
           <Link
             key={a.to}
             to={a.to}
-            className="card flex flex-col items-center gap-1 py-3 active:scale-95"
+            className="card flex w-[76px] shrink-0 flex-col items-center gap-1 py-3 active:scale-95"
           >
             <span className="text-2xl">{a.emoji}</span>
             <span className="text-[10px] font-bold text-ink/60">{a.label}</span>

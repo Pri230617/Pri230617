@@ -50,6 +50,7 @@ const defaultState: AppState = {
   },
   sessions: [],
   streak: { count: 0, lastTrainingDate: null },
+  reminder: { enabled: false, hour: 18 },
   onboarded: false,
 };
 
@@ -89,6 +90,7 @@ interface StoreValue {
   }) => void;
   deleteSession: (id: string) => void;
   setOnboarded: (v: boolean) => void;
+  setReminder: (r: Partial<AppState['reminder']>) => void;
   resetAll: () => void;
 }
 
@@ -223,6 +225,8 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           sessions: s.sessions.filter((x) => x.id !== id),
         })),
       setOnboarded: (v) => setState((s) => ({ ...s, onboarded: v })),
+      setReminder: (r) =>
+        setState((s) => ({ ...s, reminder: { ...s.reminder, ...r } })),
       resetAll: () => {
         localStorage.removeItem(STORAGE_KEY);
         setState(defaultState);

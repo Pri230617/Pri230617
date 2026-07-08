@@ -62,7 +62,34 @@ O app é feito para caber na palma da mão durante o treino:
 Todos os dados (progresso, ofensiva, cães) ficam salvos no próprio navegador
 (`localStorage`), sem precisar de conta nem internet.
 
+## 🔔 Notificações de treino (opcional)
+
+O app pode enviar um lembrete diário para a tela de bloqueio do celular
+(inclusive iPhone, iOS 16.4+). Isso usa Web Push e precisa de uma
+configuração única no Vercel:
+
+1. **Banco de dados (KV):** no painel do projeto no Vercel, vá em **Storage →
+   Create Database → KV (Upstash)** e conecte ao projeto. Isso cria sozinho as
+   variáveis `KV_REST_API_URL` e `KV_REST_API_TOKEN`.
+2. **Variáveis de ambiente:** em **Settings → Environment Variables**, adicione:
+   - `VAPID_PRIVATE_KEY` — a chave privada gerada (par da pública que está em
+     `src/lib/push.ts`). Gere um par com `npx web-push generate-vapid-keys`.
+   - `VAPID_SUBJECT` — `mailto:seuemail@exemplo.com`
+   - `CRON_SECRET` — uma senha longa qualquer (protege o agendador).
+3. **Redeploy** o projeto.
+4. No celular, com o app **instalado na Tela de Início**, abra **Lembretes** e
+   toque em **Ativar notificações**.
+
+O agendador (`api/cron.js`) roda de hora em hora e envia o lembrete no horário
+escolhido por cada aparelho. Para testar na hora, acesse
+`https://SEU-APP.vercel.app/api/cron?key=SEU_CRON_SECRET&test=1`.
+
+> Observação: no plano gratuito (Hobby), o cron da Vercel pode rodar só uma vez
+> por dia. Para lembretes em horário exato, use um cron externo grátis (ex:
+> cron-job.org) apontando para a URL de teste acima, ou o plano Pro.
+
 ## Tecnologia
 
-React + TypeScript + Vite + Tailwind CSS. Sem back-end, sem custos, sem
-assinatura. 🐕
+React + TypeScript + Vite + Tailwind CSS no front. Notificações via Web Push
+com funções serverless (`api/`), Vercel KV e Vercel Cron. Sem custos no uso
+normal, sem assinatura. 🐕

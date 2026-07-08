@@ -15,6 +15,7 @@ import Guide from './pages/Guide';
 import ArticleDetail from './pages/ArticleDetail';
 import Achievements from './pages/Achievements';
 import Journal from './pages/Journal';
+import Reminders from './pages/Reminders';
 import { useStore } from './store/useStore';
 
 function WelcomeFlow() {
@@ -54,6 +55,7 @@ export default function App() {
         <Route path="/ferramentas" element={<Tools />} />
         <Route path="/conquistas" element={<Achievements />} />
         <Route path="/diario" element={<Journal />} />
+        <Route path="/lembretes" element={<Reminders />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
