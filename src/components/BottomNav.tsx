@@ -4,7 +4,7 @@ const items = [
   { to: '/', label: 'Início', icon: HomeIcon, end: true },
   { to: '/programas', label: 'Programas', icon: BookIcon, end: false },
   { to: '/comandos', label: 'Comandos', icon: TargetIcon, end: false },
-  { to: '/ferramentas', label: 'Ferramentas', icon: ToolIcon, end: false },
+  { to: '/guia', label: 'Guia', icon: GuideIcon, end: false },
   { to: '/perfil', label: 'Perfil', icon: DogIcon, end: false },
 ];
 
@@ -79,10 +79,11 @@ function TargetIcon({ active }: IconProps) {
     </svg>
   );
 }
-function ToolIcon({ active }: IconProps) {
+function GuideIcon({ active }: IconProps) {
   return (
     <svg viewBox="0 0 24 24" {...base(active)}>
-      <path d="M14.7 6.3a3.5 3.5 0 0 0-4.6 4.6l-6 6 2 2 6-6a3.5 3.5 0 0 0 4.6-4.6l-2.2 2.2-1.8-1.8z" />
+      <path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H11v16H5.5A1.5 1.5 0 0 0 4 20.5z" />
+      <path d="M20 4.5A1.5 1.5 0 0 0 18.5 3H13v16h5.5a1.5 1.5 0 0 1 1.5 1.5z" />
     </svg>
   );
 }

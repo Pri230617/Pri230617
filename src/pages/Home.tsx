@@ -2,8 +2,17 @@ import { Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
 import { programs } from '../data/programs';
 import { tips } from '../data/tips';
+import { articles } from '../data/guide';
+import { computeAchievements } from '../data/achievements';
 import DogSwitcher from '../components/DogSwitcher';
 import { Page, ProgressBar } from '../components/ui';
+
+const quickActions = [
+  { to: '/ferramentas', emoji: '🧰', label: 'Ferramentas' },
+  { to: '/guia', emoji: '📖', label: 'Guia' },
+  { to: '/conquistas', emoji: '🏆', label: 'Conquistas' },
+  { to: '/diario', emoji: '📔', label: 'Diário' },
+];
 
 export default function Home() {
   const { state, activeDog, isLessonDone } = useStore();
@@ -37,6 +46,9 @@ export default function Home() {
   }
 
   const tip = tips[doneLessons % tips.length];
+  const achievements = computeAchievements(state, activeDog.id);
+  const unlocked = achievements.filter((a) => a.unlocked).length;
+  const featured = articles[doneLessons % articles.length];
   const hour = new Date().getHours();
   const greeting =
     hour < 12 ? 'Bom dia' : hour < 18 ? 'Boa tarde' : 'Boa noite';
@@ -81,6 +93,25 @@ export default function Home() {
             <ProgressBar value={overall} color={activeDog.color} />
           </div>
         </div>
+      </div>
+
+      {/* Atalhos */}
+      <div className="mt-3 grid grid-cols-4 gap-2">
+        {quickActions.map((a) => (
+          <Link
+            key={a.to}
+            to={a.to}
+            className="card flex flex-col items-center gap-1 py-3 active:scale-95"
+          >
+            <span className="text-2xl">{a.emoji}</span>
+            <span className="text-[10px] font-bold text-ink/60">{a.label}</span>
+            {a.to === '/conquistas' && (
+              <span className="text-[9px] font-black text-brand-500">
+                {unlocked}/{achievements.length}
+              </span>
+            )}
+          </Link>
+        ))}
       </div>
 
       {/* Plano do dia */}
@@ -139,6 +170,24 @@ export default function Home() {
           <p className="text-sm leading-relaxed text-ink/60">{tip.text}</p>
         </div>
       </div>
+
+      {/* Artigo em destaque */}
+      <div className="mb-3 mt-7 flex items-center justify-between px-1">
+        <h2 className="text-lg font-extrabold">Para ler</h2>
+        <Link to="/guia" className="text-sm font-bold text-brand-500">
+          Ver guia
+        </Link>
+      </div>
+      <Link
+        to={`/guia/${featured.id}`}
+        className="card flex items-center gap-3 p-4 active:scale-[0.99]"
+      >
+        <span className="text-3xl">{featured.emoji}</span>
+        <div className="min-w-0">
+          <p className="font-bold leading-tight">{featured.title}</p>
+          <p className="line-clamp-2 text-xs text-ink/50">{featured.excerpt}</p>
+        </div>
+      </Link>
     </Page>
   );
 }

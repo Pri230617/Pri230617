@@ -8,6 +8,8 @@ const filters = [
   { id: 'todos', label: 'Todos' },
   { id: 'basico', label: 'Básico' },
   { id: 'comportamento', label: 'Comportamento' },
+  { id: 'convivencia', label: 'Convivência' },
+  { id: 'vida', label: 'Vida prática' },
   { id: 'truque', label: 'Truques' },
 ] as const;
 

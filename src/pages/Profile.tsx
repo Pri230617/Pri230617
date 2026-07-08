@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useStore } from '../store/useStore';
 import { programs } from '../data/programs';
 import { Page, DogAvatar, ProgressBar } from '../components/ui';
@@ -37,6 +38,15 @@ export default function Profile() {
         <Stat label="Ofensiva" value={`${state.streak.count}🔥`} />
         <Stat label="Sessões" value={String(state.sessions.length)} />
         <Stat label="Minutos" value={String(totalMinutes)} />
+      </div>
+
+      <div className="mt-3 grid grid-cols-2 gap-3">
+        <Link to="/conquistas" className="btn-ghost">
+          🏆 Conquistas
+        </Link>
+        <Link to="/diario" className="btn-ghost">
+          📔 Diário
+        </Link>
       </div>
 
       {/* Cards de cães */}

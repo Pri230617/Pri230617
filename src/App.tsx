@@ -9,6 +9,10 @@ import CommandDetail from './pages/CommandDetail';
 import Tools from './pages/Tools';
 import Profile from './pages/Profile';
 import Onboarding from './pages/Onboarding';
+import Guide from './pages/Guide';
+import ArticleDetail from './pages/ArticleDetail';
+import Achievements from './pages/Achievements';
+import Journal from './pages/Journal';
 import { useStore } from './store/useStore';
 
 export default function App() {
@@ -34,7 +38,11 @@ export default function App() {
         />
         <Route path="/comandos" element={<Commands />} />
         <Route path="/comandos/:commandId" element={<CommandDetail />} />
+        <Route path="/guia" element={<Guide />} />
+        <Route path="/guia/:articleId" element={<ArticleDetail />} />
         <Route path="/ferramentas" element={<Tools />} />
+        <Route path="/conquistas" element={<Achievements />} />
+        <Route path="/diario" element={<Journal />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

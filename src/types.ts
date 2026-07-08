@@ -14,6 +14,13 @@ export interface Dog {
 
 export type Difficulty = 'facil' | 'medio' | 'dificil';
 
+export type CommandCategory =
+  | 'basico'
+  | 'comportamento'
+  | 'convivencia'
+  | 'vida'
+  | 'truque';
+
 export interface Command {
   id: string;
   name: string;
@@ -25,7 +32,7 @@ export interface Command {
   why: string; // por que treinar isso
   steps: string[];
   tips: string[];
-  category: 'basico' | 'comportamento' | 'truque';
+  category: CommandCategory;
 }
 
 export interface Lesson {
@@ -56,6 +63,46 @@ export interface Tip {
   emoji: string;
 }
 
+// ---- Guia / artigos ----
+
+export type ArticleCategory =
+  | 'convivencia'
+  | 'comportamento'
+  | 'filhote'
+  | 'saude'
+  | 'metodo';
+
+export interface ArticleSection {
+  heading?: string;
+  body?: string;
+  list?: string[];
+}
+
+export interface Article {
+  id: string;
+  title: string;
+  emoji: string;
+  category: ArticleCategory;
+  readMinutes: number;
+  excerpt: string;
+  sections: ArticleSection[];
+}
+
+// ---- Conquistas ----
+
+export interface Achievement {
+  id: string;
+  title: string;
+  desc: string;
+  emoji: string;
+}
+
+export interface AchievementState extends Achievement {
+  unlocked: boolean;
+  progress: number; // 0..1
+  progressLabel?: string;
+}
+
 // ---- Estado persistido ----
 
 export interface Progress {
@@ -70,6 +117,9 @@ export interface SessionLog {
   date: string; // ISO
   label: string;
   minutes: number;
+  note?: string; // anotação livre do tutor
+  manual?: boolean; // registrado manualmente no diário
+  mood?: 'otimo' | 'ok' | 'dificil'; // como foi a sessão
 }
 
 export interface AppState {

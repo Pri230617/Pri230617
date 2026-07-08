@@ -81,6 +81,13 @@ interface StoreValue {
   isLessonDone: (lessonId: string) => boolean;
   logSession: (label: string, minutes: number) => void;
   practiceCommand: (commandId: string, minutes: number) => void;
+  addJournalEntry: (entry: {
+    label: string;
+    minutes: number;
+    note?: string;
+    mood?: SessionLog['mood'];
+  }) => void;
+  deleteSession: (id: string) => void;
   setOnboarded: (v: boolean) => void;
   resetAll: () => void;
 }
@@ -192,6 +199,29 @@ export function StoreProvider({ children }: { children: ReactNode }) {
           next.sessions = [session, ...next.sessions].slice(0, 200);
           return next;
         }),
+      addJournalEntry: ({ label, minutes, note, mood }) =>
+        setState((s) => {
+          const session: SessionLog = {
+            id: 'sess-' + s.sessions.length + '-manual-' + label,
+            dogId: s.activeDogId,
+            date: new Date().toISOString(),
+            label,
+            minutes,
+            note,
+            mood,
+            manual: true,
+          };
+          return {
+            ...s,
+            sessions: [session, ...s.sessions].slice(0, 200),
+            streak: minutes > 0 ? registerTrainingDay(s) : s.streak,
+          };
+        }),
+      deleteSession: (id) =>
+        setState((s) => ({
+          ...s,
+          sessions: s.sessions.filter((x) => x.id !== id),
+        })),
       setOnboarded: (v) => setState((s) => ({ ...s, onboarded: v })),
       resetAll: () => {
         localStorage.removeItem(STORAGE_KEY);

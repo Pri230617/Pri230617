@@ -380,6 +380,207 @@ export const programs: Program[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'corredor',
+    title: 'Silêncio no corredor',
+    emoji: '🚪',
+    color: '#c94f4f',
+    tagline: 'Não latir para quem passa',
+    forProblem: 'Late para pessoas passando no corredor/prédio',
+    description:
+      'O Kazuki late no corredor por instinto territorial: ele ouve passos/vozes do outro lado e "avisa". Como ele nunca vê que a pessoa foi embora "por causa do latido", o comportamento se reforça sozinho. Vamos deixar esses sons normais e ensinar o "Quieto". Treine "Fala", "Quieto" e "No lugar" antes.',
+    level: 'dificil',
+    lessons: [
+      {
+        id: 'corr-1',
+        title: 'Sons do prédio viram coisa boa',
+        goal: 'Transformar passos e vozes do corredor em sinal de petisco, não de ameaça.',
+        minutes: 8,
+        steps: [
+          'Sente perto da porta em um horário calmo.',
+          'A cada som distante do corredor (passos, elevador, voz), jogue um petisco no chão antes de ele latir.',
+          'Se ele estiver muito reativo, afaste-se da porta e comece de mais longe.',
+          'Repita em vários dias: som do corredor = petisco cai do céu.',
+        ],
+        successSign: 'Ao ouvir alguém no corredor, ele olha para você esperando petisco em vez de disparar a latir.',
+      },
+      {
+        id: 'corr-2',
+        title: 'Ensinar "Fala" e "Quieto"',
+        goal: 'Ter um botão de ligar e desligar o latido.',
+        minutes: 8,
+        steps: [
+          'Ensine "Fala" recompensando um ou dois latidos sob comando.',
+          'Em seguida ofereça um petisco no nariz e diga "Quieto"; recompense o silêncio.',
+          'Alterne "Fala" e "Quieto" na mesma sessão.',
+          'Aumente aos poucos o tempo de silêncio antes de recompensar.',
+        ],
+        successSign: 'Ele para de latir quando você diz "Quieto" e recebe o petisco.',
+      },
+      {
+        id: 'corr-3',
+        title: 'Um latido é permitido',
+        goal: 'Aceitar que ele avise uma vez e depois silencie a pedido.',
+        minutes: 8,
+        steps: [
+          'Quando ele latir para um som real, deixe UM ou dois latidos (é natural avisar).',
+          'Diga "Obrigado, quieto" com calma e mostre o petisco.',
+          'Recompense assim que ele silenciar.',
+          'Nunca grite: para o cão, sua voz alta é você latindo junto.',
+        ],
+        successSign: 'Ele avisa uma vez e silencia quando você pede, voltando a relaxar.',
+      },
+      {
+        id: 'corr-4',
+        title: 'Ir para o lugar quando ouve alguém',
+        goal: 'Trocar o latido na porta por ir para a caminha.',
+        minutes: 10,
+        steps: [
+          'Ao ouvir movimento no corredor, mande "Lugar" e recompense ele na caminha.',
+          'Deixe a caminha longe da porta, num ponto mais tranquilo.',
+          'Pratique com sons combinados (alguém andando de propósito no corredor).',
+          'Um brinquedo recheado na caminha ajuda ele a se ocupar e ignorar o corredor.',
+        ],
+        successSign: 'Barulho no corredor vira sinal de ir relaxar na caminha, não de latir na porta.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'convivencia',
+    title: 'Paz com o Yuki',
+    emoji: '🤝',
+    color: '#3f9f8f',
+    tagline: 'Respeitar o espaço do irmão',
+    forProblem: 'Não respeita o espaço do Yuki',
+    description:
+      'O Yuki é mais velho, castrado e tranquilo; o Kazuki é filhote e elétrico. Isso não é briga por "quem manda" — é o filhote sem noção de limites ainda. Vamos dar ao Yuki um refúgio seguro, ensinar o Kazuki a ter autocontrole perto dele e criar uma rotina previsível para os dois. Faça "Esperar a vez" e "Respeitar o espaço" antes.',
+    level: 'medio',
+    lessons: [
+      {
+        id: 'conv-1',
+        title: 'Um refúgio só do Yuki',
+        goal: 'Garantir ao Yuki um espaço onde o filhote não entra.',
+        minutes: 6,
+        steps: [
+          'Escolha um cantinho (caminha, cômodo) e use portãozinho para o Kazuki não invadir.',
+          'Leve o Yuki lá nos momentos de descanso e recompense a calma dele.',
+          'Ensine o Kazuki que o espaço do Yuki não é playground: recompense-o por ficar no lugar dele.',
+          'Nunca force os dois a ficarem juntos o tempo todo.',
+        ],
+        successSign: 'O Yuki tem um lugar onde relaxa sem ser importunado, e o Kazuki respeita.',
+      },
+      {
+        id: 'conv-2',
+        title: 'Rotina previsível para os dois',
+        goal: 'Reduzir ciúme com uma ordem clara de atenção e comida.',
+        minutes: 6,
+        steps: [
+          'Alimente os dois separados, cada um no seu canto, para evitar disputa.',
+          'Faça carinho e dê petiscos ao Yuki primeiro enquanto o Kazuki espera (comando "Espera").',
+          'Recompense o Kazuki por aguardar com calma — a vez dele vem em seguida.',
+          'Mantenha a mesma ordem todo dia: previsibilidade acalma.',
+        ],
+        successSign: 'Os dois recebem atenção sem empurra-empurra e sem o Kazuki se atropelar.',
+      },
+      {
+        id: 'conv-3',
+        title: 'Autocontrole perto do Yuki',
+        goal: 'Ensinar o Kazuki a "baixar a rotação" quando o Yuki não quer brincar.',
+        minutes: 8,
+        steps: [
+          'Fique atento aos sinais do Yuki de que já chega (ele se afasta, vira o rosto, resmunga).',
+          'Nesse momento, chame o Kazuki e redirecione para um brinquedo ou "procura".',
+          'Recompense o Kazuki por deixar o Yuki em paz.',
+          'Faça pausas nas brincadeiras ANTES de o Kazuki passar do ponto.',
+        ],
+        successSign: 'Quando o Yuki dá sinal de "chega", o Kazuki desengata e vai fazer outra coisa.',
+      },
+      {
+        id: 'conv-4',
+        title: 'Treino lado a lado',
+        goal: 'Treinar os dois juntos, aproveitando o Yuki como exemplo.',
+        minutes: 10,
+        steps: [
+          'Peça comandos simples (Senta, Fica) para os dois ao mesmo tempo.',
+          'Recompense os dois pela calma. O Kazuki copia o comportamento tranquilo do Yuki.',
+          'Deixe os dois relaxando no mesmo ambiente, cada um no seu tapete, e recompense a paz.',
+          'Termine com uma brincadeira supervisionada e curta.',
+        ],
+        successSign: 'Os dois conseguem treinar e relaxar juntos, tranquilos, no mesmo espaço.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'brinquedos',
+    title: 'Dividir sem brigar',
+    emoji: '🧸',
+    color: '#c98a2b',
+    tagline: 'Fim da guerra dos brinquedos',
+    forProblem: 'Rouba e guarda os brinquedos do Yuki',
+    description:
+      'O Kazuki pega os brinquedos do Yuki e não devolve — isso é "guarda de recursos", muito comum em filhotes. A chave NÃO é arrancar da boca dele (isso piora e pode virar rosnado/agressão), e sim ensinar que largar e dividir SEMPRE traz algo bom. Faça "Troca", "Deixa" e "Solta" antes.',
+    level: 'dificil',
+    lessons: [
+      {
+        id: 'brin-1',
+        title: 'Largar é o melhor negócio',
+        goal: 'Ensinar o "Troca": soltar o objeto traz algo ainda melhor.',
+        minutes: 7,
+        steps: [
+          'Dê um brinquedo ao Kazuki. Ofereça um petisco de alto valor dizendo "Troca".',
+          'Quando ele soltar, recompense e DEVOLVA o brinquedo em seguida.',
+          'Repita muito: ele aprende que soltar não é perder, é ganhar duas vezes.',
+          'Nunca arranque à força — isso ensina o cão a guardar com mais força.',
+        ],
+        successSign: 'Ele solta o objeto na hora que você diz "Troca", tranquilo e feliz.',
+      },
+      {
+        id: 'brin-2',
+        title: 'Muitos brinquedos, zero disputa',
+        goal: 'Reduzir a competição com abundância e manejo.',
+        minutes: 6,
+        steps: [
+          'Tenha vários brinquedos iguais espalhados para não haver "o brinquedo disputado".',
+          'Nos primeiros tempos, dê os brinquedos de mordida (osso, Kong) com os dois separados.',
+          'Supervisione: se o clima esquentar, recolha o item com um "Troca", sem drama.',
+          'Guarde os itens de altíssimo valor para momentos individuais.',
+        ],
+        successSign: 'Menos disputa: cada um consegue ficar com um brinquedo em paz.',
+      },
+      {
+        id: 'brin-3',
+        title: 'Respeitar o brinquedo do Yuki',
+        goal: 'Ensinar o Kazuki a não tomar o que o Yuki está usando.',
+        minutes: 8,
+        steps: [
+          'Quando o Yuki estiver com um brinquedo, chame o Kazuki e ofereça OUTRO brinquedo/atividade.',
+          'Recompense o Kazuki por brincar com o dele e deixar o do Yuki em paz.',
+          'Se ele for tomar, redirecione com "Deixa" e recompense.',
+          'Nunca deixe o Kazuki "ganhar" tomando à força: isso reforça o comportamento.',
+        ],
+        successSign: 'O Kazuki brinca com o próprio brinquedo enquanto o Yuki usa o dele, sem tomar.',
+      },
+      {
+        id: 'brin-4',
+        title: 'Brincadeira de troca a três',
+        goal: 'Transformar dividir num jogo gostoso entre vocês e os dois cães.',
+        minutes: 10,
+        steps: [
+          'Com os dois cães, faça rodadas de "Troca" alternando entre eles, recompensando cada largada.',
+          'Jogue um brinquedo para um, depois peça troca e jogue para o outro.',
+          'Todos ganham petisco por participar sem disputar.',
+          'Termine antes de cansar. Deixe a sensação de que dividir é divertido.',
+        ],
+        successSign: 'Os dois participam de trocas e brincadeiras sem rosnar nem tomar à força.',
+      },
+    ],
+  },
 ];
 
 export const programsById = Object.fromEntries(programs.map((p) => [p.id, p]));
