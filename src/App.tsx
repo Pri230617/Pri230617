@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import BottomNav from './components/BottomNav';
+import Landing from './pages/Landing';
 import Home from './pages/Home';
 import Programs from './pages/Programs';
 import ProgramDetail from './pages/ProgramDetail';
@@ -15,15 +17,24 @@ import Achievements from './pages/Achievements';
 import Journal from './pages/Journal';
 import { useStore } from './store/useStore';
 
+function WelcomeFlow() {
+  const [step, setStep] = useState<'landing' | 'onboarding'>('landing');
+  return (
+    <div className="app-shell">
+      {step === 'landing' ? (
+        <Landing onStart={() => setStep('onboarding')} />
+      ) : (
+        <Onboarding onBack={() => setStep('landing')} />
+      )}
+    </div>
+  );
+}
+
 export default function App() {
   const { state } = useStore();
 
   if (!state.onboarded) {
-    return (
-      <div className="app-shell">
-        <Onboarding />
-      </div>
-    );
+    return <WelcomeFlow />;
   }
 
   return (

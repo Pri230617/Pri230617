@@ -31,7 +31,25 @@
     @apply inline-flex items-center justify-center gap-2 rounded-2xl px-5 py-3 font-bold transition active:scale-[0.98] disabled:opacity-50;
   }
   .btn-primary {
-    @apply btn bg-brand-400 text-white shadow-soft hover:bg-brand-500;
+    @apply btn text-white shadow-soft;
+    background-image: linear-gradient(135deg, #eaad5c 0%, #e39236 45%, #d47a22 100%);
+  }
+  .btn-primary:hover {
+    background-image: linear-gradient(135deg, #e39236 0%, #d47a22 45%, #bb601b 100%);
+  }
+  .hero-gradient {
+    background-image: radial-gradient(
+        120% 80% at 80% 0%,
+        rgba(255, 255, 255, 0.35) 0%,
+        rgba(255, 255, 255, 0) 55%
+      ),
+      linear-gradient(160deg, #eaad5c 0%, #e39236 45%, #c0562b 100%);
+  }
+  .text-gradient {
+    background-image: linear-gradient(120deg, #e39236, #c0562b);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
   .btn-ghost {
     @apply btn bg-brand-50 text-brand-700 hover:bg-brand-100;

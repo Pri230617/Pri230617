@@ -4,6 +4,7 @@ import { useStore } from '../store/useStore';
 import { Page } from '../components/ui';
 import BackButton from '../components/BackButton';
 import SessionTimer from '../components/SessionTimer';
+import VideoGuide from '../components/VideoGuide';
 
 export default function LessonDetail() {
   const { programId, lessonId } = useParams();
@@ -54,6 +55,13 @@ export default function LessonDetail() {
         </p>
         <p className="mt-1 text-sm font-semibold text-ink/80">{lesson.goal}</p>
       </div>
+
+      <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Veja como fazer 🎬</h2>
+      <VideoGuide
+        emoji={program.emoji}
+        query={`${lesson.title} ${program.title}`}
+        accent={program.color}
+      />
 
       <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Passo a passo</h2>
       <ol className="space-y-2.5">

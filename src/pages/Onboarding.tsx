@@ -24,14 +24,35 @@ const slides = [
   },
 ];
 
-export default function Onboarding() {
+export default function Onboarding({ onBack }: { onBack?: () => void }) {
   const { setOnboarded } = useStore();
   const [i, setI] = useState(0);
   const last = i === slides.length - 1;
   const s = slides[i];
 
+  function goBack() {
+    if (i > 0) setI(i - 1);
+    else onBack?.();
+  }
+
   return (
     <div className="flex min-h-screen flex-col bg-gradient-to-b from-brand-50 to-cream px-6 pt-safe">
+      <button
+        onClick={goBack}
+        className="mt-4 flex w-fit items-center gap-1 text-sm font-bold text-ink/40"
+      >
+        <svg width="20" height="20" viewBox="0 0 24 24">
+          <path
+            d="m15 6-6 6 6 6"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.4"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+        Voltar
+      </button>
       <div className="flex flex-1 flex-col items-center justify-center text-center">
         <div className="mb-8 flex h-32 w-32 items-center justify-center rounded-full bg-white text-7xl shadow-soft">
           {s.emoji}
