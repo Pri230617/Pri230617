@@ -159,9 +159,50 @@ export default function Reminders() {
         </p>
       )}
 
-      <p className="mt-6 text-center text-xs text-ink/40">
+      {/* Status para diagnóstico */}
+      <div className="mt-6 rounded-2xl bg-white p-4 shadow-card">
+        <p className="mb-2 text-xs font-black uppercase tracking-wide text-ink/40">
+          Status
+        </p>
+        <StatusRow
+          label="App instalado na tela inicial"
+          ok={isStandalone()}
+          hint={isIOS() ? 'Obrigatório no iPhone' : undefined}
+        />
+        <StatusRow label="Navegador com suporte a push" ok={pushSupported} />
+        <StatusRow
+          label="Permissão de notificações"
+          ok={typeof Notification !== 'undefined' && Notification.permission === 'granted'}
+          hint={
+            typeof Notification !== 'undefined' && Notification.permission === 'denied'
+              ? 'Reative em Ajustes → Adestra'
+              : undefined
+          }
+        />
+        <StatusRow label="Lembrete ativado" ok={active} />
+      </div>
+
+      <p className="mt-4 text-center text-xs text-ink/40">
         As notificações chegam mesmo com o app fechado, na tela de bloqueio.
       </p>
     </Page>
+  );
+}
+
+function StatusRow({
+  label,
+  ok,
+  hint,
+}: {
+  label: string;
+  ok: boolean;
+  hint?: string;
+}) {
+  return (
+    <div className="flex items-center gap-2 py-1">
+      <span>{ok ? '✅' : '⬜'}</span>
+      <span className="flex-1 text-sm font-semibold text-ink/70">{label}</span>
+      {!ok && hint && <span className="text-[11px] text-ink/40">{hint}</span>}
+    </div>
   );
 }

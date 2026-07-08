@@ -40,12 +40,29 @@ export default async function handler(req, res) {
 
     // Diagnóstico: mostra o que está configurado (sem revelar segredos).
     if (query.diag === '1') {
+      const kvDiag = getKv();
+      let inscricoes = null;
+      let detalhes = [];
+      if (kvDiag) {
+        try {
+          const ids = (await kvDiag.smembers('adestra:subs')) || [];
+          inscricoes = ids.length;
+          for (const id of ids) {
+            const rec = await kvDiag.get('adestra:sub:' + id);
+            if (rec) detalhes.push({ hour: rec.hour, tz: rec.tz, dog: rec.dogName });
+          }
+        } catch (e) {
+          inscricoes = 'erro: ' + String(e && e.message);
+        }
+      }
       return res.status(200).json({
         ok: true,
-        kv_configurado: Boolean(getKv()),
+        kv_configurado: Boolean(kvDiag),
         vapid_private: Boolean(process.env.VAPID_PRIVATE_KEY),
         cron_secret: Boolean(process.env.CRON_SECRET),
         vapid_subject: process.env.VAPID_SUBJECT || '(padrão)',
+        inscricoes, // quantos aparelhos ativaram as notificações
+        detalhes, // horário/fuso de cada um
       });
     }
 
