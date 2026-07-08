@@ -1,0 +1,385 @@
+import type { Program } from '../types';
+
+export const programs: Program[] = [
+  // ---------------------------------------------------------------
+  {
+    id: 'fundamentos',
+    title: 'Fundamentos',
+    emoji: '🎓',
+    color: '#e39236',
+    tagline: 'A escola básica do Kazuki',
+    description:
+      'A base de tudo. Antes de resolver latido ou choro, o Kazuki precisa entender como o treino funciona e dominar os comandos essenciais. Faça uma lição por dia (ou repita à vontade).',
+    level: 'facil',
+    lessons: [
+      {
+        id: 'fund-1',
+        title: 'Marcar e recompensar',
+        goal: 'Ensinar o Kazuki que um som ("clique" ou "isso!") significa "acertou, vem petisco".',
+        minutes: 5,
+        steps: [
+          'Pegue 15 petiscos bem pequenos e macios.',
+          'Clique (ou diga "isso!") e, meio segundo depois, entregue um petisco. Sem pedir nada.',
+          'Repita 15 vezes. O objetivo é só criar a associação som = comida.',
+          'No fim, teste: clique quando ele estiver distraído. Se ele virar esperando o petisco, funcionou!',
+        ],
+        successSign: 'Ao ouvir o clique, ele olha para você esperando o petisco.',
+      },
+      {
+        id: 'fund-2',
+        title: 'Atenção ao nome',
+        goal: 'Fazer o Kazuki virar para você sempre que ouvir o nome dele.',
+        minutes: 5,
+        steps: [
+          'Diga "Kazuki!" numa voz alegre.',
+          'No instante em que ele olhar, marque ("isso!") e recompense.',
+          'Repita em cômodos diferentes.',
+          'Nunca use o nome dele para brigar — o nome tem que ser sempre coisa boa.',
+        ],
+        successSign: 'Ele vira a cabeça na hora que ouve o nome, mesmo distraído.',
+      },
+      {
+        id: 'fund-3',
+        title: 'Sentar com guia da mão',
+        goal: 'Primeiro comando: sentar seguindo o petisco.',
+        minutes: 6,
+        steps: [
+          'Suba o petisco por cima do nariz dele em direção ao rabo.',
+          'Quando o bumbum tocar o chão, marque e recompense.',
+          'Repita 8 vezes só com o gesto.',
+          'Adicione a palavra "Senta" quando ele já estiver sentando fácil.',
+        ],
+        successSign: 'Ele senta ao ouvir "Senta", sem precisar do petisco guiando.',
+      },
+      {
+        id: 'fund-4',
+        title: 'O jogo da calma',
+        goal: 'Recompensar o Kazuki por ficar quietinho — a habilidade mais importante para ele.',
+        minutes: 7,
+        steps: [
+          'Sente numa cadeira com petiscos na mão e simplesmente ignore o Kazuki.',
+          'No primeiro instante em que ele ficar parado (sentado ou deitado, sem pular), marque e jogue um petisco no chão.',
+          'Espere ele se acalmar de novo e repita.',
+          'Aos poucos ele descobre que ficar calmo é o que traz recompensa.',
+        ],
+        successSign: 'Ele começa a oferecer calma sozinho para ganhar petisco, em vez de pular.',
+      },
+      {
+        id: 'fund-5',
+        title: 'Deitar e relaxar',
+        goal: 'Ensinar o deitar e alongar o tempo de relaxamento.',
+        minutes: 7,
+        steps: [
+          'Do sentado, leve o petisco até o chão em formato de "L".',
+          'Marque quando a barriga encostar no chão.',
+          'Adicione a palavra "Deita".',
+          'Recompense alguns segundos de permanência deitado.',
+        ],
+        successSign: 'Ele deita a pedido e fica alguns segundos relaxado.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'campainha',
+    title: 'Campainha sem escândalo',
+    emoji: '🔔',
+    color: '#c0562b',
+    tagline: 'Não latir quando alguém chega',
+    forProblem: 'Latir quando a campainha toca',
+    description:
+      'O Kazuki late na campainha porque isso é emocionante e imprevisível. Vamos deixar o som chato/normal e ensinar uma reação alternativa: ir para o lugar dele em vez de latir. Faça o pré-requisito "No lugar" antes.',
+    level: 'medio',
+    lessons: [
+      {
+        id: 'camp-1',
+        title: 'Dessensibilizar o som',
+        goal: 'Fazer a campainha virar um som comum, sem graça.',
+        minutes: 8,
+        steps: [
+          'Grave o som da sua campainha no celular (ou use um vídeo).',
+          'Toque o som BEM baixinho, num volume que não faça o Kazuki latir.',
+          'A cada vez que toca, jogue petiscos no chão. Som = chuva de petiscos.',
+          'Aumente o volume bem devagar ao longo dos dias, sempre associando a petisco.',
+          'Só suba o volume quando ele estiver tranquilo no volume atual.',
+        ],
+        successSign: 'Ao ouvir a campainha gravada, ele olha para você esperando petisco em vez de latir.',
+      },
+      {
+        id: 'camp-2',
+        title: 'Campainha = ir para o lugar',
+        goal: 'Trocar o latido por uma ação: correr para a caminha.',
+        minutes: 8,
+        steps: [
+          'Toque o som da campainha (baixo) e imediatamente conduza o Kazuki até o "lugar" dele.',
+          'Recompense generosamente ele no lugar.',
+          'Repita até ele começar a ir para o lugar sozinho ao ouvir o som.',
+          'Só então aumente o volume aos poucos.',
+        ],
+        successSign: 'Ao ouvir a campainha, ele corre para a caminha esperando o petisco.',
+      },
+      {
+        id: 'camp-3',
+        title: 'Ensaio com a porta',
+        goal: 'Treinar a cena real: campainha + você indo até a porta.',
+        minutes: 10,
+        steps: [
+          'Peça ajuda de alguém para tocar a campainha de verdade (bem de leve no começo).',
+          'Mande o Kazuki para o "lugar" e recompense a permanência.',
+          'Vá até a porta, abra e feche, e volte a recompensar ele no lugar.',
+          'Se ele latir, é sinal de que o passo está difícil: baixe a intensidade.',
+          'Repita em dias diferentes até virar rotina.',
+        ],
+        successSign: 'A campainha toca, ele vai para o lugar e espera calmo enquanto você atende.',
+      },
+      {
+        id: 'camp-4',
+        title: 'Visitas de verdade',
+        goal: 'Generalizar com pessoas entrando de fato.',
+        minutes: 12,
+        steps: [
+          'Combine com amigos/família para "visitas de treino".',
+          'Antes de abrir, mande o Kazuki para o lugar.',
+          'Peça para a visita ignorar o Kazuki na entrada (nada de olhar/falar/mexer).',
+          'Só libere ele para cumprimentar quando estiver calmo.',
+          'Recompense muito a calma. Se latir, a visita finge que vai embora e recomeça.',
+        ],
+        successSign: 'Visitas entram e ele espera no lugar, cumprimentando com calma quando liberado.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'sozinho',
+    title: 'Ficar sozinho sem chorar',
+    emoji: '🏠',
+    color: '#8a63c8',
+    tagline: 'Adeus ansiedade de separação',
+    forProblem: 'Chora quando saímos de casa',
+    description:
+      'O choro quando vocês saem é ansiedade de separação — comum em filhotes resgatados como o Kazuki, ainda mais com o histórico dele. A regra de ouro: aumentar o tempo sozinho em passos MINÚSCULOS, sempre voltando antes de ele surtar. Paciência aqui é tudo.',
+    level: 'dificil',
+    lessons: [
+      {
+        id: 'soz-1',
+        title: 'Chegadas e saídas sem drama',
+        goal: 'Tirar a emoção do momento de sair e chegar.',
+        minutes: 5,
+        steps: [
+          'Pare de fazer festa ao sair e ao chegar. Ignore o Kazuki por alguns minutos ao entrar.',
+          'Só dê atenção quando ele estiver calmo.',
+          'Isso ensina que sua saída/chegada não é um grande evento.',
+          'Vale para a família toda — todos precisam seguir a regra.',
+        ],
+        successSign: 'Ele não fica em frenesi quando você pega a chave ou entra em casa.',
+      },
+      {
+        id: 'soz-2',
+        title: 'Dessensibilizar os "gatilhos de saída"',
+        goal: 'Fazer pegar a chave/calçar o sapato não significar mais "vão me deixar".',
+        minutes: 8,
+        steps: [
+          'Pegue as chaves e... não saia. Largue de volta. Repita em horários aleatórios.',
+          'Calce o sapato e sente no sofá. Coloque o casaco e faça outra coisa.',
+          'Repita esses gatilhos várias vezes por dia, desconectados da saída real.',
+          'Com o tempo, esses sinais deixam de disparar a ansiedade.',
+        ],
+        successSign: 'Ele não fica agitado quando você pega a chave ou o casaco.',
+      },
+      {
+        id: 'soz-3',
+        title: 'Sumir por segundos',
+        goal: 'Começar a ausência pela porta interna, em segundos.',
+        minutes: 8,
+        steps: [
+          'Dê ao Kazuki um brinquedo recheado (Kong com pasta/ração) na caminha.',
+          'Saia do cômodo e feche a porta por 3 segundos. Volte com naturalidade.',
+          'Repita, variando o tempo: 5s, 2s, 10s, 3s... nunca só aumentando.',
+          'Sempre volte ANTES de ele começar a chorar.',
+          'Se ele chorar, você aumentou rápido demais: volte para tempos menores.',
+        ],
+        successSign: 'Ele fica tranquilo com você fora do cômodo por até 1 minuto.',
+      },
+      {
+        id: 'soz-4',
+        title: 'Saídas pela porta de casa',
+        goal: 'Transferir o treino para a porta de verdade.',
+        minutes: 10,
+        steps: [
+          'Repita o passo anterior, mas agora saindo pela porta principal.',
+          'Comece com 10 a 30 segundos do lado de fora.',
+          'Aumente em passos pequenos: 1 min, 2 min, 5 min, 10 min...',
+          'Grave um vídeo do Kazuki enquanto está fora para ver como ele reage.',
+          'Deixe um som ambiente (rádio/TV) e o brinquedo recheado sempre.',
+        ],
+        successSign: 'Ele fica calmo por vários minutos com você fora de casa.',
+      },
+      {
+        id: 'soz-5',
+        title: 'Construindo independência',
+        goal: 'Ensinar o Kazuki a relaxar longe de você, mesmo em casa.',
+        minutes: 7,
+        steps: [
+          'Durante o dia, recompense o Kazuki por descansar na caminha longe de você.',
+          'Não deixe ele te seguir em TODOS os cômodos o tempo todo — use portões se precisar.',
+          'Estimule o Yuki e o Kazuki a terem espaços de descanso próprios.',
+          'Brinquedos de enriquecimento (tapete de forragear, Kong) ajudam ele a se ocupar sozinho.',
+        ],
+        successSign: 'Ele consegue relaxar sozinho num cômodo sem chorar atrás de você.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'rua',
+    title: 'Passeio tranquilo',
+    emoji: '🚶',
+    color: '#2f8f6b',
+    tagline: 'Sem latir para gente e cães',
+    forProblem: 'Late para pessoas e outros cães na rua',
+    description:
+      'O Kazuki late na rua por empolgação, medo ou frustração. A estratégia é manter distância dos gatilhos e recompensar ele por perceber a pessoa/cão SEM reagir, trocando o latido pelo "olha pra mim". Treine "Olha" e "Junto" antes.',
+    level: 'dificil',
+    lessons: [
+      {
+        id: 'rua-1',
+        title: 'Descobrir a distância segura',
+        goal: 'Achar a distância em que o Kazuki vê o gatilho mas ainda consegue prestar atenção em você.',
+        minutes: 8,
+        steps: [
+          'Observe: a que distância de um cão/pessoa o Kazuki começa a latir?',
+          'Fique SEMPRE mais longe que isso — essa é a "zona verde" onde ele consegue pensar.',
+          'Nessa distância, cada vez que ele olhar o gatilho e não latir, marque e recompense.',
+          'O objetivo é ele associar "vi um cão" a "ganho petisco da minha pessoa".',
+        ],
+        successSign: 'Na distância segura, ele olha o gatilho e depois vira para você esperando petisco.',
+      },
+      {
+        id: 'rua-2',
+        title: 'O jogo do "olha o cão"',
+        goal: 'Transformar a visão de outro cão num pedido de atenção.',
+        minutes: 10,
+        steps: [
+          'Assim que o Kazuki perceber um cão à distância, diga "Olha!" e recompense o contato visual com você.',
+          'Repita a cada vez que um gatilho aparecer, sempre na zona verde.',
+          'Se ele latir, aumente a distância e facilite.',
+          'Com o tempo, ao ver um cão ele já vai virar para você sozinho.',
+        ],
+        successSign: 'Ao avistar um cão, ele automaticamente busca seu olhar em vez de latir.',
+      },
+      {
+        id: 'rua-3',
+        title: 'Aproximar aos poucos',
+        goal: 'Reduzir a distância dos gatilhos de forma gradual.',
+        minutes: 10,
+        steps: [
+          'Só diminua a distância quando ele estiver 100% tranquilo na distância atual.',
+          'Reduza pouquíssimo por vez — alguns passos por semana.',
+          'Se ele reagir, você chegou perto demais: recue e não tem problema.',
+          'Faça curvas e mudanças de direção para não ir "de frente" com outro cão.',
+        ],
+        successSign: 'Ele passa mais perto de cães/pessoas mantendo a calma e o foco em você.',
+      },
+      {
+        id: 'rua-4',
+        title: 'Passar por gatilhos em movimento',
+        goal: 'Manter a calma quando pessoas/cães passam perto.',
+        minutes: 12,
+        steps: [
+          'Posicione-se de forma que você fique ENTRE o Kazuki e o gatilho.',
+          'Enquanto passam, mande "Junto" e "Olha", recompensando bastante.',
+          'Use petiscos de alto valor (frango, queijo) só para esses momentos difíceis.',
+          'Se possível, crie distância dando a volta ou atravessando a rua.',
+        ],
+        successSign: 'Pessoas e cães passam perto e ele continua andando ao seu lado, tranquilo.',
+      },
+    ],
+  },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'autocontrole',
+    title: 'Autocontrole e calma',
+    emoji: '🧘',
+    color: '#3f7fd0',
+    tagline: 'Um Kazuki mais zen (tipo o Yuki)',
+    forProblem: 'Muito agitado e teimoso',
+    description:
+      'Teimosia geralmente é excesso de energia + falta de autocontrole. Este programa ensina o Kazuki a se acalmar sozinho, esperar e pensar antes de agir — o caminho para ele ficar tão de boa quanto o Yuki (com o tempo!).',
+    level: 'medio',
+    lessons: [
+      {
+        id: 'auto-1',
+        title: 'Esperar pela comida',
+        goal: 'Ensinar o Kazuki a esperar calmo antes de liberar o pote.',
+        minutes: 5,
+        steps: [
+          'Com o pote na mão, comece a abaixar em direção ao chão.',
+          'Se ele pular/avançar, suba o pote de novo (sem falar nada).',
+          'Só encoste o pote no chão quando ele estiver parado.',
+          'Solte a palavra "Pode!" para ele comer.',
+          'Repita em toda refeição — vira autocontrole automático.',
+        ],
+        successSign: 'Ele espera sentado/parado até você liberar a comida.',
+      },
+      {
+        id: 'auto-2',
+        title: 'Pega o petisco com gentileza',
+        goal: 'Reduzir a "afobação" e a mordida na hora do petisco.',
+        minutes: 5,
+        steps: [
+          'Feche o petisco na mão. Ele vai fuçar/mordiscar.',
+          'Só abra a mão quando ele parar e recuar um pouco.',
+          'Recompense a delicadeza.',
+          'Vá exigindo mais calma antes de abrir.',
+        ],
+        successSign: 'Ele pega o petisco com a boca mole, sem se atirar.',
+      },
+      {
+        id: 'auto-3',
+        title: 'Interruptor de energia (senta no meio da brincadeira)',
+        goal: 'Ensinar a alternar entre agitação e calma sob comando.',
+        minutes: 8,
+        steps: [
+          'Brinque animado com o Kazuki por 20-30 segundos.',
+          'Pare de repente e peça "Senta".',
+          'Quando ele sentar, marque e volte a brincar (a brincadeira é a recompensa!).',
+          'Repita. Ele aprende a "descer a rotação" quando você pede.',
+        ],
+        successSign: 'No auge da empolgação, ele consegue sentar e se acalmar quando você pede.',
+      },
+      {
+        id: 'auto-4',
+        title: 'Enriquecimento: cansar a cabeça',
+        goal: 'Gastar energia mental — o que mais acalma um filhote teimoso.',
+        minutes: 10,
+        steps: [
+          'Espalhe a ração pelo gramado/tapete para ele farejar ("forrageamento").',
+          'Use Kong recheado e congelado, brinquedos de puzzle.',
+          'Esconda petiscos pela casa para ele procurar.',
+          '15 minutos de faro cansam mais que 1 hora de corrida.',
+        ],
+        successSign: 'Depois das atividades mentais, ele fica visivelmente mais calmo e dorme melhor.',
+      },
+      {
+        id: 'auto-5',
+        title: 'Relaxar no tapete ("settle")',
+        goal: 'Ensinar o Kazuki a simplesmente relaxar por longos períodos.',
+        minutes: 10,
+        steps: [
+          'Leve-o ao tapete e peça "Deita".',
+          'Recompense em silêncio, devagar, sem empolgar, a cada poucos segundos de calma.',
+          'Vá aumentando o intervalo entre os petiscos.',
+          'Faça isso enquanto você assiste TV — ele aprende a "desligar" perto de você.',
+          'O Yuki pode ser um ótimo modelo: deixe os dois relaxando juntos.',
+        ],
+        successSign: 'Ele deita no tapete e relaxa por vários minutos por conta própria.',
+      },
+    ],
+  },
+];
+
+export const programsById = Object.fromEntries(programs.map((p) => [p.id, p]));
