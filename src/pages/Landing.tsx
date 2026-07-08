@@ -54,7 +54,13 @@ const steps = [
   },
 ];
 
-export default function Landing({ onStart }: { onStart: () => void }) {
+export default function Landing({
+  onStart,
+  onClose,
+}: {
+  onStart: () => void;
+  onClose?: () => void;
+}) {
   const { state } = useStore();
 
   return (
@@ -70,12 +76,31 @@ export default function Landing({ onStart }: { onStart: () => void }) {
         </div>
 
         <div className="relative flex items-center gap-2 pt-6">
-          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/25 text-xl backdrop-blur">
-            🐾
-          </div>
+          {onClose ? (
+            <button
+              onClick={onClose}
+              aria-label="Voltar"
+              className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/25 text-xl backdrop-blur active:scale-95"
+            >
+              <svg width="22" height="22" viewBox="0 0 24 24">
+                <path
+                  d="m15 6-6 6 6 6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.6"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          ) : (
+            <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-white/25 text-xl backdrop-blur">
+              🐾
+            </div>
+          )}
           <span className="text-lg font-black tracking-tight">Adestra</span>
           <span className="ml-auto rounded-full bg-white/20 px-3 py-1 text-xs font-bold backdrop-blur">
-            sem mensalidade
+            {onClose ? 'apresentação' : 'sem mensalidade'}
           </span>
         </div>
 

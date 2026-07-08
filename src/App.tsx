@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import BottomNav from './components/BottomNav';
 import Landing from './pages/Landing';
 import Home from './pages/Home';
@@ -31,6 +31,14 @@ function WelcomeFlow() {
   );
 }
 
+// Landing acessível de dentro do app (revisita), com botão de voltar.
+function LandingRoute() {
+  const navigate = useNavigate();
+  return (
+    <Landing onStart={() => navigate('/')} onClose={() => navigate(-1)} />
+  );
+}
+
 export default function App() {
   const { state } = useStore();
 
@@ -56,6 +64,7 @@ export default function App() {
         <Route path="/conquistas" element={<Achievements />} />
         <Route path="/diario" element={<Journal />} />
         <Route path="/lembretes" element={<Reminders />} />
+        <Route path="/apresentacao" element={<LandingRoute />} />
         <Route path="/perfil" element={<Profile />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

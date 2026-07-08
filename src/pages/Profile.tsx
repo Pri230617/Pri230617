@@ -50,6 +50,9 @@ export default function Profile() {
         <Link to="/lembretes" className="btn-ghost col-span-2">
           🔔 Lembretes de treino
         </Link>
+        <Link to="/apresentacao" className="btn-ghost col-span-2">
+          🐾 Tela de apresentação
+        </Link>
       </div>
 
       {/* Cards de cães */}
