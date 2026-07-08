@@ -4,7 +4,19 @@ import { useStore } from '../store/useStore';
 import { Page } from '../components/ui';
 import BackButton from '../components/BackButton';
 import SessionTimer from '../components/SessionTimer';
-import VideoGuide from '../components/VideoGuide';
+import TechniqueIllustration from '../components/TechniqueIllustration';
+
+// cada programa mostra a cena mais representativa do seu objetivo
+const programScene: Record<string, string> = {
+  fundamentos: 'sentar',
+  campainha: 'campainha',
+  corredor: 'quieto',
+  sozinho: 'sozinho',
+  rua: 'olha',
+  autocontrole: 'calma',
+  convivencia: 'espera-a-vez',
+  brinquedos: 'troca',
+};
 
 export default function LessonDetail() {
   const { programId, lessonId } = useParams();
@@ -56,10 +68,9 @@ export default function LessonDetail() {
         <p className="mt-1 text-sm font-semibold text-ink/80">{lesson.goal}</p>
       </div>
 
-      <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Veja como fazer 🎬</h2>
-      <VideoGuide
-        emoji={program.emoji}
-        query={`${lesson.title} ${program.title}`}
+      <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Veja como fazer ✏️</h2>
+      <TechniqueIllustration
+        sceneKey={programScene[program.id] ?? 'sentar'}
         accent={program.color}
       />
 

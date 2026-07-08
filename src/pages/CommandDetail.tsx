@@ -4,7 +4,7 @@ import { useStore } from '../store/useStore';
 import { Page, DifficultyChip } from '../components/ui';
 import BackButton from '../components/BackButton';
 import SessionTimer from '../components/SessionTimer';
-import VideoGuide from '../components/VideoGuide';
+import TechniqueIllustration from '../components/TechniqueIllustration';
 
 export default function CommandDetail() {
   const { commandId } = useParams();
@@ -55,11 +55,11 @@ export default function CommandDetail() {
         <p className="mt-1 text-sm leading-relaxed text-ink/80">{command.why}</p>
       </div>
 
-      <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Veja como fazer 🎬</h2>
-      <VideoGuide emoji={command.emoji} query={command.name} />
+      <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Veja como fazer ✏️</h2>
+      <TechniqueIllustration sceneKey={command.id} />
       <p className="mt-2 px-1 text-xs text-ink/40">
-        Dica: procure vídeos de treinadores que usam petisco e clicker (reforço
-        positivo). Fuja de métodos com puxões ou gritos.
+        Ilustração do gesto principal. Siga o passo a passo abaixo com petisco e
+        clicker (reforço positivo).
       </p>
 
       <h2 className="mb-2 mt-6 px-1 text-lg font-extrabold">Passo a passo</h2>
