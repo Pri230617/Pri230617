@@ -581,6 +581,113 @@ export const programs: Program[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'reatividade',
+    title: 'Calma com outros cães',
+    emoji: '🐕‍🦺',
+    color: '#4c78c0',
+    tagline: 'Reatividade na guia, passo a passo',
+    forProblem: 'Late e se agita ao ver outros cães na rua',
+    description:
+      'O aprofundamento do "Passeio tranquilo", focado só na reação a outros cães. Latir na guia quase sempre é emoção demais (medo, frustração ou empolgação), não "birra". A estratégia: manter distância confortável, transformar "ver um cão" em coisa boa e ensinar o Kazuki a olhar para você em vez de reagir. Faça "Olha pra mim", "Vira" e "Junto" antes. Paciência: reatividade melhora em semanas/meses, não em dias.',
+    level: 'dificil',
+    lessons: [
+      {
+        id: 'reat-1',
+        title: 'Entender o latido e achar o limiar',
+        goal: 'Descobrir por que ele late e a que distância ele ainda consegue pensar.',
+        minutes: 8,
+        steps: [
+          'Observe o corpo dele ao ver um cão: rabo, orelhas, pelo do lombo. Medo (recua, rabo baixo), frustração (quer chegar e não pode) e empolgação têm sinais diferentes.',
+          'Ache o "limiar": a distância em que ele PERCEBE o outro cão mas ainda aceita petisco e te ouve.',
+          'Trabalhe sempre ALÉM dessa distância (a "zona verde"). Perto demais, o cérebro dele "desliga" e não aprende.',
+          'Anote no Diário: em que distância, que tipo de cão e que horários ele reage mais.',
+        ],
+        successSign: 'Você já sabe a distância segura em que o Kazuki vê um cão sem explodir.',
+      },
+      {
+        id: 'reat-2',
+        title: 'Cão à vista = chuva de petiscos',
+        goal: 'Fazer o Kazuki AMAR ver outros cães (contra-condicionamento).',
+        minutes: 10,
+        steps: [
+          'Na zona verde, no instante em que um cão aparecer, comece a dar petiscos sem parar — um atrás do outro.',
+          'Quando o cão sumir de vista, PARE os petiscos na hora. Cão à vista = festa; cão sumiu = acabou a festa.',
+          'Não peça nada em troca: aqui ele ganha só por o cão existir. É emoção, não obediência.',
+          'Repita muitos dias. O cérebro dele começa a ligar "outro cão" a "coisa boa" em vez de "ameaça".',
+        ],
+        successSign: 'Ao ver um cão à distância, ele vira para você esperando petisco (a famosa "checagem").',
+      },
+      {
+        id: 'reat-3',
+        title: 'O jogo do "Olha o cão"',
+        goal: 'Ensinar a olhar o gatilho e voltar o olhar para você (engajar–desengajar).',
+        minutes: 10,
+        steps: [
+          'Na zona verde, espere ele OLHAR o outro cão. No momento do olhar, marque ("isso!") e recompense.',
+          'Ele vira para pegar o petisco — isso é o "desengajar". Perfeito.',
+          'Repita: olhou o cão → marca → recompensa. Ele aprende que olhar com calma dá lucro e não precisa latir.',
+          'Com o tempo, ao ver um cão ele mesmo vai olhar e já virar para você, sozinho.',
+        ],
+        successSign: 'Ele olha o cão de forma tranquila e volta o olhar para você por conta própria.',
+      },
+      {
+        id: 'reat-4',
+        title: 'Meia-volta de emergência ("Vira")',
+        goal: 'Ter uma saída rápida quando um cão aparece perto demais de repente.',
+        minutes: 7,
+        steps: [
+          'Em casa, ensine "Vira": diga a palavra, vire 180° e recompense ele por te acompanhar. Torne divertido.',
+          'Na rua, se um cão surgir dentro do limiar (perto demais), use "Vira" e afaste-se com petiscos.',
+          'Sair da situação NÃO é fracasso — é manejo inteligente que evita o Kazuki "ensaiar" o latido.',
+          'Escolha rotas e horários mais vazios enquanto ele ainda está aprendendo.',
+        ],
+        successSign: 'Você consegue tirar o Kazuki de uma situação difícil sem ele reagir.',
+      },
+      {
+        id: 'reat-5',
+        title: 'Passeio paralelo com o Yuki',
+        goal: 'Usar o Yuki, calmo, como âncora e exemplo.',
+        minutes: 12,
+        steps: [
+          'Passeie os dois lado a lado, com uma boa distância entre eles no começo, cada um com um condutor.',
+          'Mantenha o Yuki (tranquilo) entre o Kazuki e a rua/os gatilhos, servindo de "escudo" e modelo.',
+          'Recompense o Kazuki por andar calmo perto do irmão. Ele se regula pelo estado do Yuki.',
+          'Depois, faça passeios paralelos com outros cães calmos e conhecidos, à distância, sem forçar interação.',
+        ],
+        successSign: 'O Kazuki passeia mais relaxado ao lado do Yuki e copia a calma dele.',
+      },
+      {
+        id: 'reat-6',
+        title: 'Diminuir a distância aos poucos',
+        goal: 'Chegar mais perto dos cães sem perder a calma.',
+        minutes: 12,
+        steps: [
+          'Só reduza a distância quando ele estiver 100% tranquilo na distância atual, por vários dias.',
+          'Encolha pouquíssimo por vez — alguns passos por semana. Pressa aqui estraga o progresso.',
+          'Ande em curva ao passar por outro cão, nunca de frente e "cara a cara" (isso é tenso para cães).',
+          'Se ele reagir, apenas aumente a distância de novo, sem bronca. Recuar faz parte.',
+          'Cumprimentar outros cães é OPCIONAL — muitos cães preferem só passar em paz. Não force focinhadas.',
+        ],
+        successSign: 'Ele passa mais perto de outros cães mantendo o foco em você e a calma.',
+      },
+      {
+        id: 'reat-7',
+        title: 'Descompressão e faro',
+        goal: 'Baixar o nível de estresse geral para ele reagir menos.',
+        minutes: 10,
+        steps: [
+          'Faça passeios "de cheirar": em lugares calmos, deixe o Kazuki farejar à vontade, sem pressa.',
+          'Farejar abaixa a frequência cardíaca e a adrenalina — um cão relaxado reage bem menos.',
+          'Evite acúmulo de estresse: depois de um dia com muitos gatilhos, dê um dia mais tranquilo.',
+          'Garanta sono e enriquecimento em casa. Reatividade piora com cansaço e tédio.',
+        ],
+        successSign: 'Com a rotina mais tranquila, o Kazuki chega aos passeios mais relaxado e reage menos.',
+      },
+    ],
+  },
 ];
 
 export const programsById = Object.fromEntries(programs.map((p) => [p.id, p]));

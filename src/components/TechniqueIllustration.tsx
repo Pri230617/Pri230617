@@ -221,6 +221,26 @@ const scenes: Record<string, Scene> = {
       </>
     ),
   },
+  vira: {
+    pose: 'stand',
+    caption: '“Vira”: gire 180° numa dancinha alegre e recompense ele por te acompanhar.',
+    extras: (a, u) => (
+      <Arrow d="M150 58 a34 42 0 1 1 0 84" color={a} markerId={`${u}a`} />
+    ),
+  },
+  reatividade: {
+    pose: 'sit',
+    caption: 'Cão à vista, mas longe: recompense o Kazuki por olhar com calma e voltar pra você.',
+    extras: (a, u) => (
+      <>
+        <g transform="translate(172 92) scale(0.34)">
+          <DogSpitz pose="sit" fur="#e7ebef" shade="#cfd6dd" collar="#9aa4ad" />
+        </g>
+        <Treat x={150} y={60} />
+        <Arrow d="M143 62 q-14 3 -22 8" color={a} markerId={`${u}a`} />
+      </>
+    ),
+  },
   // cenas de programas (lições)
   campainha: {
     pose: 'sit',

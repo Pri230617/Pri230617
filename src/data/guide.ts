@@ -131,6 +131,50 @@ export const articles: Article[] = [
     ],
   },
   {
+    id: 'reatividade-caes',
+    title: 'Reatividade a outros cães na guia',
+    emoji: '🐕‍🦺',
+    category: 'comportamento',
+    readMinutes: 4,
+    excerpt:
+      'Por que o Kazuki late para outros cães no passeio — e o passo a passo para melhorar.',
+    sections: [
+      {
+        body: 'Latir e puxar ao ver outro cão na rua é chamado de "reatividade na guia". É super comum e quase nunca é "birra" ou "dominância": é emoção demais para o cão lidar. Preso na guia, ele não pode se aproximar nem se afastar como faria solto, e isso vira frustração ou medo que explodem em latido.',
+      },
+      {
+        heading: 'Medo, frustração ou empolgação?',
+        list: [
+          'Medo: corpo baixo, recua, quer aumentar a distância.',
+          'Frustração: quer chegar no outro cão e não consegue (comum em filhote sociável).',
+          'Empolgação: muita energia e pouco autocontrole.',
+        ],
+      },
+      {
+        heading: 'O que funciona',
+        body: 'A base é sempre a mesma, com muita paciência:',
+        list: [
+          'Distância: trabalhe longe o bastante para ele ainda te ouvir (o "limiar").',
+          'Contra-condicionamento: cão à vista = chuva de petiscos; cão sumiu = acabou.',
+          'Redirecionar: ensine "Olha pra mim" e o jogo do "Olha o cão".',
+          'Meia-volta: tenha um "Vira" para sair de situações difíceis.',
+          'Descompressão: passeios de faro para baixar o estresse geral.',
+        ],
+      },
+      {
+        heading: 'O que evitar',
+        list: [
+          'Puxões, gritos ou coleiras de enforcar/choque — pioram o medo e a associação com outros cães.',
+          'Forçar o cão a "encarar" ou cumprimentar de perto quando ele não está pronto.',
+          'Passar de frente e cara a cara com outro cão — ande em curva.',
+        ],
+      },
+      {
+        body: 'Reatividade melhora em semanas e meses, não em dias. Se for intensa (rosnado, avanço forte, medo grande), vale o acompanhamento de um adestrador que use reforço positivo. No app, o programa "Calma com outros cães" tem o passo a passo completo.',
+      },
+    ],
+  },
+  {
     id: 'linguagem-corporal',
     title: 'Linguagem corporal do cão',
     emoji: '👀',

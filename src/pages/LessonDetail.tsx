@@ -16,6 +16,7 @@ const programScene: Record<string, string> = {
   autocontrole: 'calma',
   convivencia: 'espera-a-vez',
   brinquedos: 'troca',
+  reatividade: 'reatividade',
 };
 
 export default function LessonDetail() {

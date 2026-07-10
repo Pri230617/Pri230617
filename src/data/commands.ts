@@ -247,6 +247,27 @@ export const commands: Command[] = [
       'Nunca empurre com o joelho nem grite — vira brincadeira ou medo.',
     ],
   },
+  {
+    id: 'vira',
+    name: 'Vira (meia-volta)',
+    cue: '"Vira"',
+    emoji: '↩️',
+    difficulty: 'medio',
+    minutes: 6,
+    category: 'comportamento',
+    summary: 'Dar meia-volta rápida e alegre. Sua saída de emergência quando um cão aparece perto demais.',
+    why: 'Nem sempre dá para manter distância na rua. O "Vira" tira o Kazuki de uma situação difícil ANTES de ele latir, evitando que ele "ensaie" a reação.',
+    steps: [
+      'Em casa, sem distração, diga "Vira" numa voz animada, gire 180° e comece a andar.',
+      'Quando ele te acompanhar na virada, marque ("isso!") e recompense generosamente.',
+      'Repita até virar um jogo gostoso: ao ouvir "Vira", ele gira feliz com você.',
+      'Leve para a rua em locais calmos e, por fim, use quando um cão surgir dentro do limiar dele.',
+    ],
+    tips: [
+      'Faça sempre com energia positiva — é uma dancinha, não um puxão.',
+      'Sair da situação não é fracasso: é o manejo que protege o progresso dele.',
+    ],
+  },
 
   // ---------- CONVIVÊNCIA COM O YUKI ----------
   {
