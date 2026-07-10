@@ -688,6 +688,113 @@ export const programs: Program[] = [
       },
     ],
   },
+
+  // ---------------------------------------------------------------
+  {
+    id: 'socializacao',
+    title: 'Amizades caninas',
+    emoji: '🎾',
+    color: '#d95f8a',
+    tagline: 'Brincadeiras e playdates com segurança',
+    forProblem: 'Brincar bem com outros cães, sem confusão',
+    description:
+      'Socialização não é "conhecer muitos cães", é ter experiências POSITIVAS e tranquilas com cães escolhidos a dedo. Feito com calma, isso deixa o Kazuki mais confiante e ajuda até na reatividade. Feito errado (soltar em qualquer parquinho lotado), pode criar medo. Aqui vamos do jeito certo, com cães conhecidos e supervisão. Ótimo complemento do programa "Calma com outros cães".',
+    level: 'medio',
+    lessons: [
+      {
+        id: 'soc-1',
+        title: 'Escolher o parceiro certo',
+        goal: 'Selecionar um amigo canino ideal para as primeiras brincadeiras.',
+        minutes: 6,
+        steps: [
+          'Prefira um cão adulto, calmo, vacinado, saudável e que já saiba brincar bem (bom "professor").',
+          'Porte parecido ou um cão gentil com filhotes — evite os brutos ou os medrosos demais.',
+          'Um cão só por vez no começo. Nada de grupo grande ou parquinho lotado ainda.',
+          'O Yuki, se topar, é um ótimo primeiro parceiro — já se conhecem e ele é tranquilo.',
+        ],
+        successSign: 'Você tem em mente 1 ou 2 cães calmos e conhecidos para começar.',
+      },
+      {
+        id: 'soc-2',
+        title: 'Apresentação bem feita',
+        goal: 'Apresentar os dois cães de forma gradual, sem susto.',
+        minutes: 10,
+        steps: [
+          'Comece com um passeio paralelo, lado a lado e a certa distância, os dois na guia.',
+          'Deixe eles se observarem e cheirarem o chão por onde o outro passou, sem irem direto ao focinho.',
+          'Aproxime aos poucos. Permita uma cheirada rápida de lado (nunca frente a frente) e chame de volta.',
+          'Prefira um lugar neutro (nem a casa de um, nem a do outro) e amplo.',
+          'Se um dos dois ficar tenso, aumente a distância — sem pressa.',
+        ],
+        successSign: 'Os dois se cheiram de forma relaxada, com o corpo solto, sem tensão.',
+      },
+      {
+        id: 'soc-3',
+        title: 'Ler os sinais de brincadeira',
+        goal: 'Reconhecer quando é brincadeira saudável.',
+        minutes: 7,
+        steps: [
+          'Sinais bons: "reverência" (peito no chão, bumbum pra cima), corpo mole, revezar quem persegue, pausas.',
+          'Brincadeira saudável tem altos e baixos — não é 100% correria sem parar.',
+          'Autocorreção: cães bem-socializados dão pequenas pausas sozinhos. Ótimo sinal.',
+          'Fique de olho: brincadeira boa é EQUILIBRADA (os dois topam e revezam os papéis).',
+        ],
+        successSign: 'Você identifica a reverência e o corpo solto como "estão brincando de boa".',
+      },
+      {
+        id: 'soc-4',
+        title: 'O teste das pausas (consentimento)',
+        goal: 'Checar se os dois realmente querem continuar brincando.',
+        minutes: 6,
+        steps: [
+          'A cada 20-30 segundos, chame o Kazuki e segure-o de leve por um instante (pausa).',
+          'Solte. Se ele voltar animado para o amigo, os dois querem continuar. Pode seguir!',
+          'Se ele se afasta, se distrai ou parece aliviado, a brincadeira já estava intensa demais.',
+          'Essas pausas também baixam a adrenalina e evitam que a farra vire briga.',
+        ],
+        successSign: 'Você faz pausas curtas e sabe ler se os dois querem continuar.',
+      },
+      {
+        id: 'soc-5',
+        title: 'Brincadeira saudável x hora de intervir',
+        goal: 'Saber quando entrar e separar com calma.',
+        minutes: 8,
+        steps: [
+          'Intervenha se: um cão sempre por baixo sem revezar, um tentando fugir, rosnados que endurecem, pelo eriçado constante.',
+          'Separe com leveza chamando os dois e criando distância — sem gritos nem puxões bruscos.',
+          'Nunca deixe um filhote "aprender na marra" com um cão que o assusta.',
+          'Dê água e sombra; superaquecer e cansar demais também pioram o clima.',
+        ],
+        successSign: 'Você consegue interromper e dar uma pausa antes de qualquer atrito.',
+      },
+      {
+        id: 'soc-6',
+        title: 'Playdate em casa ou em local neutro',
+        goal: 'Preparar o ambiente para uma brincadeira tranquila.',
+        minutes: 8,
+        steps: [
+          'Recolha ossos, brinquedos disputados e potes de comida antes de o convidado chegar (evita disputa por recurso).',
+          'Garanta espaço amplo e saídas — cada cão precisa poder se afastar se quiser.',
+          'Comece pela apresentação em área externa/neutra e só depois entrem juntos.',
+          'Supervisione o tempo todo; nada de deixar os dois sozinhos no início.',
+        ],
+        successSign: 'O ambiente está seguro e os dois brincam relaxados, com você por perto.',
+      },
+      {
+        id: 'soc-7',
+        title: 'Encerrar bem e descomprimir',
+        goal: 'Terminar no auge e ajudar o Kazuki a se acalmar depois.',
+        minutes: 6,
+        steps: [
+          'Encerre ANTES do cansaço extremo, enquanto ainda está gostoso — a última lembrança fica positiva.',
+          'Faça uma despedida calma e ofereça água.',
+          'Depois, um passeio de faro curto ou um descanso ajudam a baixar a adrenalina.',
+          'Espace os playdates: qualidade e calma valem mais que quantidade.',
+        ],
+        successSign: 'As brincadeiras terminam bem e o Kazuki relaxa tranquilo depois.',
+      },
+    ],
+  },
 ];
 
 export const programsById = Object.fromEntries(programs.map((p) => [p.id, p]));

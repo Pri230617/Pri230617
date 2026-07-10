@@ -241,6 +241,18 @@ const scenes: Record<string, Scene> = {
       </>
     ),
   },
+  amizades: {
+    pose: 'sit',
+    caption: 'Playdate com um amigo calmo e conhecido: brincadeira supervisionada e com pausas.',
+    extras: () => (
+      <>
+        <g transform="translate(-40 34) scale(0.6)">
+          <DogSpitz pose="sit" fur="#efdcc0" shade="#d8bd92" collar="#c98a2b" />
+        </g>
+        <Heart x={70} y={54} />
+      </>
+    ),
+  },
   // cenas de programas (lições)
   campainha: {
     pose: 'sit',

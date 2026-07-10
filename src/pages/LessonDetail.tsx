@@ -17,6 +17,7 @@ const programScene: Record<string, string> = {
   convivencia: 'espera-a-vez',
   brinquedos: 'troca',
   reatividade: 'reatividade',
+  socializacao: 'amizades',
 };
 
 export default function LessonDetail() {
